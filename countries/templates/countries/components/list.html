@@ -1,0 +1,56 @@
+{% extends "countries/layout/layout.html" %}
+{% block body %}
+<div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Pos</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Number</th>
+                <th>Actions</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for a in countries %}
+            <tr>
+                <th>
+                    {{a.id}}
+                </th>
+                <td>
+                    {{a.name}}
+                </td>
+                <td>
+                    {{a.description}}
+                </td>
+                <td>
+                    {{a.position}}
+                </td>
+                <td>
+                    <div class="groupActionsList">
+                        <button class="button is-info">
+                            <a href="{% url 'countries:editCountry' a.id %}">Edit</a>
+                        </button>
+                        <button class="button is-danger">
+                            <a href="{% url 'countries:deleteCountry' a.id %}">Delete</a>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <p>No exits Countries</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

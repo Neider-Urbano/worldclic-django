@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="{% static 'countries/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'countries/edit.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'countries/new.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'countries/list.css' %}" rel="stylesheet" type="text/css" />
+
+    <title>App Countries</title>
+</head>
+
+<body class="container">
+    {% include 'countries/layout/nav.html' %}
+    <main style="margin-top: 50px;">
+        {% block body %}
+        {% endblock %}
+    </main>
+    {% include 'countries/layout/footer.html' with name="AppCountries" %}
+</body>
+
+</html>

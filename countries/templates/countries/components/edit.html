@@ -1,0 +1,15 @@
+{% extends "countries/layout/layout.html" %}
+{% block body %}
+<div style="width: 40%;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="groupCamposForm">
+            {{form.as_div}}
+        </div>
+        <div class="groupButtonsNew">
+            <button class="button is-success" type="submit">Update</button>
+            <button class="button is-light" type="button">Cancel</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
